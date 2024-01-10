@@ -17,7 +17,7 @@ public class EmployeeServiceImpl extends EmployeeService {
             ));
 
     @Override
-    public Employee addEmployee(String firstName, String lastName) {
+    public void addEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (employees.size() >= STORAGE_SIZE) {
             throw new EmployeeStorageIsFullException("Список полностью заполнен");
@@ -26,26 +26,23 @@ public class EmployeeServiceImpl extends EmployeeService {
             throw new EmployeeAlreadyAddedException("Сотрудник уже добавлен в список");
         }
         employees.add(employee);
-        return employee;
     }
 
     @Override
-    public Employee removeEmployee(String firstName, String lastName) {
+    public void removeEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee)) {
             throw new EmployeeNotFoundException("Удаляемый сотрудник не найден");
         }
         employees.remove(employee);
-        return employee;
     }
 
     @Override
-    public Employee findEmployee(String firstName, String lastName) {
+    public void findEmployee(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee)) {
             throw new EmployeeNotFoundException("Сотрудник не найден");
         }
-        return employee;
     }
 
     @Override

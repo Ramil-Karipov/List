@@ -22,13 +22,10 @@ public abstract class EmployeeController {
             @RequestParam("lastName") String lastName) {
         try {
             employeeService.addEmployee(firstName, lastName);
-        } catch (EmployeeStorageIsFullException e) {
-            throw new RuntimeException();
-        } catch (EmployeeAlreadyAddedException e) {
+        } catch (EmployeeStorageIsFullException | EmployeeAlreadyAddedException e) {
             throw new RuntimeException();
         }
-        Employee employee = new Employee(firstName, lastName);
-        return employee;
+        return new Employee(firstName, lastName);
     }
 
     @GetMapping(path = "/remove")
@@ -54,8 +51,7 @@ public abstract class EmployeeController {
         } catch (EmployeeNotFoundException e) {
             throw new RuntimeException();
         }
-        Employee employee = new Employee(firstName, lastName);
-        return employee;
+        return new Employee(firstName, lastName);
 
     }
 

@@ -3,19 +3,18 @@ package com.list.List;
 import java.util.List;
 
 public class EmployeeService {
-    Employee addEmployee(String firstName, String lastName) {
-        return null;
+    void addEmployee(String firstName, String lastName) {
     }
 
-    Employee removeEmployee(String firstName, String lastName) {
-        return null;
+    void removeEmployee(String firstName, String lastName) {
     }
 
-    Employee findEmployee(String firstName, String lastName) {
-        return null;
+    void findEmployee(String firstName, String lastName) {
+
     }
 
     List<Employee> getAllEmployees() {
+
         return null;
     }
 }

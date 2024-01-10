@@ -3,7 +3,7 @@ package com.list.List;
 import java.util.Objects;
 
 public class Employee {
-    private String firstName;
+    private final String firstName;
     public String lastName;
 
     public Employee(String firstName, String lastName) {
@@ -37,7 +37,8 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "firstName:" + firstName + "lastName:" + lastName;
+        return "firstName:" + firstName +
+                "lastName:" + lastName;
     }
 }
 
